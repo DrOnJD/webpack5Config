@@ -1,0 +1,22 @@
+@import 'global.module';
+
+:global {
+  .red {
+    color: $base-color;
+  }
+}
+
+:root {
+  .qwe {
+    color: blue;
+  }
+}
+
+
+.App {
+  color: red;
+
+  .content {
+    color: green;
+  }
+}
