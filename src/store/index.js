@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import counter from './dispatchers/counter';
+import users from './dispatchers/users';
 
 
 export default configureStore({
   reducer: {
-    counter,
+    users,
   },
   devTools: true,
 });
