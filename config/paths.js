@@ -1,6 +1,8 @@
-/* eslint-disable */
-const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const { realpathSync } = require('fs');
+
+const path = require('path');
+
 
 const appDirectory = realpathSync(process.cwd());
 const resolve = (relativePath) => path.resolve(appDirectory, relativePath);

@@ -1,0 +1,16 @@
+html,
+body,
+:global(#root) {
+  height: 100%;
+}
+
+.app {
+  color: #555;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+}

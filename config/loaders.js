@@ -2,9 +2,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const { src } = require('./paths');
 
-const isDev = process.env.NODE_ENV === 'development';
 
-module.exports = [
+module.exports = (env) => ([
   {
     test: /\.js(x)?$/,
     exclude: /(node_modules)/,
@@ -21,12 +20,7 @@ module.exports = [
   {
     test: /\.s?css$/i,
     use: [
-      isDev ? 'style-loader' : {
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          esModule: false,
-        },
-      },
+      env === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
       {
         loader: 'css-loader',
         options: {
@@ -40,6 +34,7 @@ module.exports = [
           },
         },
       },
+      'postcss-loader',
       'sass-loader',
     ],
   },
@@ -47,4 +42,4 @@ module.exports = [
     test: /\.(png|jpg|svg|gif)/i,
     use: ['file-loader'],
   },
-];
+]);
