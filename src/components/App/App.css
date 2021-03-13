@@ -1,0 +1,44 @@
+html,
+body,
+:global(#root) {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  .center {
+    color: #555;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    .button {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 5px 15px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cicle {
+      border: 1px solid #ccc;
+      margin: 10px;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

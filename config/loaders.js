@@ -34,8 +34,7 @@ module.exports = (env) => ([
           },
         },
       },
-      'postcss-loader',
-      'sass-loader',
+      ...(env === 'production' ? ['postcss-loader', 'sass-loader'] : ['sass-loader']),
     ],
   },
   {
