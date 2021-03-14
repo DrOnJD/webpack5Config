@@ -23,8 +23,8 @@ module.exports = merge(common, {
     new DefinePlugin({ 'process.env': JSON.stringify(process.env) }),
     new HtmlWebpackPlugin({ template: paths.indexHTML, inject: true }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
     }),
   ],
   module: {

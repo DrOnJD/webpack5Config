@@ -8,7 +8,8 @@ module.exports = {
   context: paths.src,
   entry: ['@babel/polyfill', './index.jsx'],
   output: {
-    filename: 'chunk.[chunkhash].js',
+    filename: 'js/chunk.[chunkhash].js',
+    chunkFilename: 'js/[id][chunkhash].js',
     path: paths.dist,
     libraryExport: 'default',
   },

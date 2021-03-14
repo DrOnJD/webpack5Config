@@ -1,15 +1,14 @@
 const { PORT } = process.env;
 
 module.exports = {
-  clientLogLevel: 'error',
-  publicPath: '/',
+  clientLogLevel: 'warning',
+  inline: true,
+  overlay: true,
   compress: true,
   port: PORT || 3000,
   hot: true,
   watchContentBase: true,
-  watchOptions: {
-    ignored: /node_modules/,
-  },
+  historyApiFallback: true,
   proxy: {
     '/api': 'http://localhost:3000',
   },

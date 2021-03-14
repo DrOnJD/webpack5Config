@@ -20,11 +20,12 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({ template: paths.indexHTML, inject: true }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id][contenthash].css',
+      filename: 'css/[name].[contenthash].css',
+      chunkFilename: 'css/[id][contenthash].css',
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
+      openAnalyzer: false,
     }),
   ],
   module: {
@@ -34,27 +35,13 @@ module.exports = merge(common, {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
-      new TerserPlugin(),
+      new TerserPlugin({
+        extractComments: false,
+      }),
     ],
     splitChunks: {
       chunks: 'all',
       maxSize: 244000,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          reuseExistingChunk: true,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
     },
   },
   stats: 'normal',

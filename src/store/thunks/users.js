@@ -1,11 +1,11 @@
 import { getUsersApi } from 'store/api/users';
-import { addUsers } from 'store/dispatchers/users';
+import { actions } from 'store/slices/users';
 
 
 export const getUsers = async (dispatch) => {
-  dispatch(addUsers(undefined, 'PENDING'));
+  dispatch(actions.addUsers(undefined, 'PENDING'));
   const { data } = await getUsersApi();
-  dispatch(addUsers(data, 'SUCCESS'));
+  dispatch(actions.addUsers(data, 'SUCCESS'));
 };
 
 export const decrementAsync = () => () => {

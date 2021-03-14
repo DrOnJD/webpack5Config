@@ -19,26 +19,11 @@ body,
     display: flex;
     align-items: center;
 
-    .button {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 10px;
-      padding: 5px 15px;
-      cursor: pointer;
-      user-select: none;
-    }
+  }
 
-    .cicle {
-      border: 1px solid #ccc;
-      margin: 10px;
-      width: 120px;
-      height: 120px;
-      cursor: pointer;
-      user-select: none;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .logo {
+    width: 150px;
+    height: 150px;
+    background-image: url(assets/img/example.svg);
   }
 }

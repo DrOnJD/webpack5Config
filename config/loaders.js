@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const { src } = require('./paths');
@@ -39,6 +40,11 @@ module.exports = (env) => ([
   },
   {
     test: /\.(png|jpg|svg|gif)/i,
-    use: ['file-loader'],
+    use: [{
+      loader: 'file-loader',
+      options: {
+        name: '[path][name].[contenthash].[ext]',
+      },
+    }],
   },
 ]);
