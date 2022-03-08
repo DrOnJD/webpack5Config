@@ -15,10 +15,11 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.wasm', '.mjs', '.js', '.svelte', '.json', '.css', '.scss'], // import файлов без разширения
+    extensions: ['.svelte', '.json', '.mjs', '.js'], // import файлов без разширения
+    mainFields: ['svelte', 'browser', 'module', 'main'],
     modules: ['node_modules', 'src'], // корневые директории для импортов
     plugins: [
-      new DirectoryNamedWebpackPlugin({ honorIndex: true }), // import компонентов по имени папки
+      new DirectoryNamedWebpackPlugin({ honorIndex: true, exclude: /node_modules/ }), // import компонентов по имени папки
     ],
   },
 };

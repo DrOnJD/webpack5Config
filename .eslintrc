@@ -15,7 +15,7 @@
       "groups": ["builtin", "external", "internal"]
     }],
     "import/extensions": 1,
-    "import/newline-after-import": [1, { "count": 2 }],
+    "import/newline-after-import": [1, { "count": 2 }]
   },
   "env": {
     "browser": true,
@@ -23,9 +23,7 @@
   },
   "extends": [
     "airbnb",
-    "airbnb/hooks",
-    "eslint:recommended",
-    "plugin:react/recommended"
+    "eslint:recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -36,7 +34,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "svelte3"
   ],
   "ignorePatterns": [
     "./config",

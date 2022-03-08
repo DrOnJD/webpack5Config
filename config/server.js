@@ -1,15 +1,19 @@
+const proxy = require('./proxy');
+
+
 const { PORT } = process.env;
 
 module.exports = {
-  clientLogLevel: 'warning',
-  inline: true,
-  overlay: true,
+  client: {
+    logging: 'info',
+    overlay: {
+      errors: true,
+      warnings: false,
+    },
+  },
   compress: true,
   port: PORT || 3000,
-  hot: true,
-  watchContentBase: true,
+  liveReload: true,
   historyApiFallback: true,
-  proxy: {
-    '/api': 'http://localhost:3000',
-  },
+  proxy,
 };

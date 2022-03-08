@@ -1,8 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const { DefinePlugin, HotModuleReplacementPlugin } = require('webpack');
+const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common');
@@ -19,13 +17,8 @@ module.exports = merge(common, {
       exclude: ['config', 'node_modules'],
       quiet: false,
     }),
-    new HotModuleReplacementPlugin(),
     new DefinePlugin({ 'process.env': JSON.stringify(process.env) }),
     new HtmlWebpackPlugin({ template: paths.indexHTML, inject: true }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css',
-    }),
   ],
   module: {
     rules: loaders('development'),
