@@ -6,7 +6,7 @@ const paths = require('./paths');
 
 module.exports = {
   context: paths.src,
-  entry: ['@babel/polyfill', './index.jsx'],
+  entry: ['@babel/polyfill', './index.js'],
   output: {
     filename: 'js/chunk.[chunkhash].js',
     chunkFilename: 'js/[id][chunkhash].js',
@@ -15,7 +15,7 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '.css', '.scss'], // import файлов без разширения
+    extensions: ['.wasm', '.mjs', '.js', '.svelte', '.json', '.css', '.scss'], // import файлов без разширения
     modules: ['node_modules', 'src'], // корневые директории для импортов
     plugins: [
       new DirectoryNamedWebpackPlugin({ honorIndex: true }), // import компонентов по имени папки
