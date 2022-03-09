@@ -3,6 +3,7 @@ const { DefinePlugin, HotModuleReplacementPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common');
@@ -26,6 +27,7 @@ module.exports = merge(common, {
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css',
     }),
+    new CleanTerminalPlugin(),
   ],
   module: {
     rules: loaders('development'),
