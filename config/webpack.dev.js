@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const plugins = require('./plugins');
 const loaders = require('./loaders');
+const server = require('./server');
 
 
 module.exports = merge(common, {
@@ -12,7 +13,7 @@ module.exports = merge(common, {
   module: {
     rules: loaders('development'),
   },
-  devServer: require('./server'), //eslint-disable-line
+  devServer: server,
   stats: 'errors-warnings',
   devtool: 'inline-source-map',
 });

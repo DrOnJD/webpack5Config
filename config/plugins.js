@@ -26,16 +26,9 @@ module.exports = (env) => compact([
     analyzerMode: 'static',
     openAnalyzer: false,
   }),
-  new MiniCssExtractPlugin(
-    env === 'development'
-      ? {
-        filename: 'css/[name].css',
-        chunkFilename: 'css/[id].css',
-      }
-      : {
-        filename: 'css/[name].[contenthash].css',
-        chunkFilename: 'css/[id][contenthash].css',
-      },
-  ),
+  new MiniCssExtractPlugin({
+    filename: env === 'development' ? 'css/[name].css' : 'css/[name].[contenthash].css',
+    chunkFilename: env === 'development' ? 'css/[id].css' : 'css/[id][contenthash].css',
+  }),
 ]);
 

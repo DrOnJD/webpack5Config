@@ -27,7 +27,7 @@ module.exports = (env) => ([
           importLoaders: 2,
           modules: {
             compileType: 'module',
-            mode: 'local',
+            mode: (res) => /node_modules/i.test(res) ? 'global' : 'local', // eslint-disable-line
             localIdentName: '[local]_[hash:base64:5]',
             localIdentContext: src,
             exportLocalsConvention: 'camelCaseOnly',
